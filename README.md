@@ -289,7 +289,8 @@ EXAMPLE:
 PushNotification.localNotificationSchedule({
   //... You can use all the options from localNotifications
   message: "My Notification Message", // (required)
-  date: new Date(Date.now() + 60 * 1000) // in 60 secs
+  date: new Date(Date.now() + 60 * 1000), // in 60 secs
+  firePast: false // (optional) set whether to fire notification if date is in the past
 });
 ```
 

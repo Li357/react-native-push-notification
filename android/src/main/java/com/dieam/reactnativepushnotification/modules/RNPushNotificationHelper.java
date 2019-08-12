@@ -122,6 +122,10 @@ public class RNPushNotificationHelper {
     public void sendNotificationScheduledCore(Bundle bundle) {
         long fireDate = (long) bundle.getDouble("fireDate");
 
+        if (System.currentTimeMillis() > fireDate && !bundle.getBoolean("firePast")) {
+            return;
+        }
+
         // If the fireDate is in past, this will fire immediately and show the
         // notification to the user
         PendingIntent pendingIntent = toScheduleNotificationIntent(bundle);
